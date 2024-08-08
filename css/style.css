@@ -63,4 +63,9 @@ select{
         margin-top: 0.1rem;
         height: 20px;
     }
+    *{
+        font-size: 0.8rem;
+        overflow-x: hidden;
+        max-width: 100%;
+    }
 }
