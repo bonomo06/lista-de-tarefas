@@ -46,10 +46,10 @@ select{
 .sections {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    /*gap: 2rem;*/
 }
 
-.sections{
+.col.sections{
     animation: appear 500ms;
   }
   @keyframes appear{

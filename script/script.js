@@ -41,6 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
       li.style.alignItems = 'left';
       li.style.minWidth = '100%';
 
+      const existe = () => {
+        const atividades = document.querySelectorAll('li');
+        for (let i = 0; i < atividades.length; i++) {
+            if (atividades[i].textContent === `${dia} - ${horario}`) {
+                alert('Atividade já existente');
+                return true;
+            }
+        }
+        return false;
+    }
+
+    if (existe()) {
+      return;
+  }
+
+      //Criar imagem de concluir
+
       const imgConcluir = document.createElement('img');
       imgConcluir.src = 'imgs/unchecked.png';
       imgConcluir.alt = 'Concluir';
@@ -57,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imgConcluir.style.marginTop = '0.3rem';
       imgConcluir.style.height = '1rem';
       imgConcluir.style.marginLeft = '1rem'; 
+
 
       /*const inputnew = document.createElement('input');
       inputnew.type = 'checkbox';
@@ -84,7 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
       btnRemover.src = 'imgs/lixopng.png';
       btnRemover.alt = 'Remover';
       btnRemover.addEventListener('click', () => {
-          sectionAtividades.removeChild(li);
+          if (li.parentElement === sectionAtividades) {
+              sectionAtividades.removeChild(li);
+          }
+          else if (li.parentElement === sectionAtividadesFinalizadas) {
+              sectionAtividadesFinalizadas.removeChild(li);
+          }
       });
 
       // Adicionar estilização do botão remover
